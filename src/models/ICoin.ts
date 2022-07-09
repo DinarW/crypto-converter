@@ -3,6 +3,7 @@ export interface ICoin {
         Id: string
         Name: string
         FullName: string
+        ImageUrl: string
     }
     DISPLAY: {
         [currency: string]: {

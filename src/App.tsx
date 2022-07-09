@@ -19,9 +19,20 @@ function App() {
                 </select>
             </form>
             <div>
-                {!isLoading && data?.map(coin => (
-                    <div key={coin.CoinInfo.Id}>{coin.CoinInfo.FullName}: {coin.DISPLAY[currency]?.PRICE}</div>
-                ))}
+                {!isLoading && data?.map(coin => {
+                    const { Id, ImageUrl, FullName } = coin.CoinInfo
+
+                    return (
+                        <div key={Id}>
+                            <div style={{ display: 'flex', alignItems: 'center' }}>
+                                <img src={ImageUrl} alt="coin-icon"
+                                     width="16px" height="16px" style={{ marginRight: '5px' }}
+                                />
+                                <p>{FullName}: {coin.DISPLAY[currency]?.PRICE}</p>
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     );
